@@ -259,7 +259,8 @@ const DSATracker = () => {
     });
   };
 
-  const DashboardView = () => {
+  // Memoize the dashboard to prevent unnecessary re-renders
+  const DashboardView = React.useMemo(() => {
     const sortedMembers = [...members].sort((a, b) => b.streak - a.streak);
     
     return (
